@@ -1,6 +1,6 @@
-# frontend-boilerplate
+# gulp-boilerplate
 
-主に静的ページ制作に使用する開発環境です。
+gulp を使った開発環境です
 
 ## Overview
 
