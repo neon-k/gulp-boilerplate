@@ -1,0 +1,12 @@
+@import '../shared/styles/import';
+@import '../shared/icons/css/icons';
+
+$test: #fff;
+
+.body {
+  color: $test;
+}
+
+.text {
+  @include font-rem(24, 36);
+}
