@@ -16,6 +16,7 @@ import nested from 'postcss-nested';
 import cleancss from 'gulp-clean-css';
 import flexbugs from 'postcss-flexbugs-fixes';
 import calc from 'postcss-calc';
+import scss from 'postcss-scss';
 
 // entry
 const entryPath = `./${conf.src}/**/!(_)${conf.css}`;
@@ -42,7 +43,9 @@ gulp.task('stylelint', () => {
         errorHandler: notify.onError('Error: <%= error.message %>')
       })
     )
-    .pipe(postcss([stylelints, reporter({ clearMessages: true })]));
+    .pipe(
+      postcss([stylelints, reporter({ clearMessages: true })], { syntax: scss })
+    );
 });
 
 gulp.task(

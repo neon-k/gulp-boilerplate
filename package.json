@@ -20,8 +20,14 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["yarn lint:script", "git add --force"],
-    "*.scss": ["yarn lint:style", "git add --force"]
+    "*.ts": [
+      "yarn lint:script",
+      "git add --force"
+    ],
+    "*.scss": [
+      "yarn lint:style",
+      "git add --force"
+    ]
   },
   "author": "kota",
   "license": "ISC",
@@ -77,6 +83,7 @@
     "postcss-media-minmax": "^4.0.0",
     "postcss-nested": "^4.1.2",
     "postcss-reporter": "^6.0.1",
+    "postcss-scss": "^2.0.0",
     "postcss-simple-vars": "^5.0.2",
     "pre-commit": "^1.2.2",
     "prerender-spa-plugin": "^3.4.0",
@@ -101,5 +108,8 @@
     "glob": "^7.1.4",
     "ress": "^1.2.2"
   },
-  "browserslist": ["last 2 versions", "ie 9"]
+  "browserslist": [
+    "last 2 versions",
+    "ie 9"
+  ]
 }
