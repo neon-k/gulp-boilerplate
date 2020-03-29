@@ -56,7 +56,7 @@
     @return $result;
   }
 
-  $result: stripUnit($val) / $BASE_FONT_SIZE * 1rem;
+  $result: stripunit($val) / $BASE_FONT_SIZE * 1rem;
 
   @return $result;
 }
@@ -80,7 +80,7 @@
     @return $result;
   }
 
-  $result: stripUnit($val) / $parent-number * 1em;
+  $result: stripunit($val) / $parent-number * 1em;
 
   @return $result;
 }
@@ -116,17 +116,18 @@
   $minViewport,
   $px2rem: false
 ) {
-  $maxValue: stripUnit($maxValue);
-  $minValue: stripUnit($minValue);
-  $maxViewport: stripUnit($maxViewport);
-  $minViewport: stripUnit($minViewport);
+  $maxValue: stripunit($maxValue);
+  $minValue: stripunit($minValue);
+  $maxViewport: stripunit($maxViewport);
+  $minViewport: stripunit($minViewport);
 
   $vwRatio: 100 * ($maxValue - $minValue) / ($maxViewport - $minViewport);
   $vwOffset: $minViewport / 100 * 1px;
 
   @if ($px2rem) {
     #{$propaty}: px2rem($maxValue * 1px);
-  } @else {
+  }
+  @else {
     #{$propaty}: #{$maxValue * 1px};
   }
 
