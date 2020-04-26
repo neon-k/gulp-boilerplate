@@ -1,5 +1,4 @@
 import conf from './system/config';
-import PrettierPlugin from 'prettier-webpack-plugin';
 import glob from 'glob';
 
 const entries = [];
@@ -33,7 +32,6 @@ export default {
     ]
   },
   resolve: {
-    extensions: [".ts"]
-  },
-  plugins: [new PrettierPlugin()]
+    extensions: ['.ts']
+  }
 };
