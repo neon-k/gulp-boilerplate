@@ -9,7 +9,7 @@ import baseConfig from './webpack.config.base.babel';
 export default merge(baseConfig, {
   output: {
     path: `${path.resolve('')}/${process.env.NODE_ENV}`,
-    filename: './script/index.bundle.js',
+    filename: '[name]',
     publicPath: '/'
   },
   mode: 'development',

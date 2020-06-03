@@ -7,7 +7,7 @@ gulp.task(
     'pug:prod',
     () => {
       return gulp
-        .src(`./${conf.src}/**/*.+(jpg|jpeg|png|gif|svg)`)
+        .src(`./${conf.src}/**/*.+(jpg|jpeg|png|gif|svg|mp4|ico)`)
         .pipe(gulp.dest(process.env.NODE_ENV));
     },
     () => {

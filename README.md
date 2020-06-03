@@ -4,7 +4,7 @@ gulp を使った開発環境です
 
 ## Overview
 
-gulp (PUG + sass) + webpack v4 (babel)
+gulp (PUG + sass) + webpack v4 (TypeScript)
 
 - [**gulp**](https://github.com/gulpjs/gulp)
   - [PUG](https://github.com/pugjs/pug)

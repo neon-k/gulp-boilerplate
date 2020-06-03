@@ -12,18 +12,10 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "jsx": "react",
-    "lib": [
-      "es2019",
-      "dom"
-    ],
+    "lib": ["es2019", "dom"],
     "paths": {
-      "*": [
-        "@types/*"
-      ]
+      "*": ["@types/*"]
     }
   },
-  "include": [
-    "./src",
-    "node_modules/@types"
-  ]
+  "include": ["./src", "node_modules/@types"]
 }

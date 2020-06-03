@@ -1,7 +1,7 @@
+import gsap from 'gsap';
+
 (() => {
   window.addEventListener('DOMContentLoaded', () => {
-    let test: string;
-
-    console.log(test);
+    console.log(gsap);
   });
 })();

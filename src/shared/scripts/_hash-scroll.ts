@@ -20,8 +20,9 @@ const hashScroll: (name: string, height?: number) => void = (
   makeArray($$targets).forEach((r: HTMLElement) => {
     r.addEventListener('click', (e: Event) => {
       e.preventDefault();
-      const href = e.currentTarget.getAttribute('href');
-      const target = document.querySelector(href);
+      const dom = e.currentTarget as HTMLElement;
+      const href = dom.getAttribute('href');
+      const target = document.querySelector(href) as HTMLElement;
 
       smoothscroll(offsetTop(target) - height);
     });

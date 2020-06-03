@@ -3,16 +3,16 @@
   font-family: 'Icons';
   /* stylelint-enable */
   src: url('/shared/icons/Icons.eot');
-  src:
-    url('/shared/icons/Icons.eot?#iefix') format('eot'),
+  src: url('/shared/icons/Icons.eot?#iefix') format('eot'),
     url('/shared/icons/Icons.woff') format('woff'),
-    url('/shared/icons/Icons.ttf') format('truetype'),;
+    url('/shared/icons/Icons.ttf') format('truetype');
 }
 
 .global-icon-font {
   /* stylelint-disable font-family-name-quotes */
-  font-family: 'Icons';
+  font-family: 'Icons', sans-serif;
   /* stylelint-enable */
+
   font-style: normal;
 
   &.adjust-solid {
@@ -38,5 +38,4 @@
       content: '\E004';
     }
   }
-
 }
