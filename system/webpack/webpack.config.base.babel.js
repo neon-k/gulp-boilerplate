@@ -11,7 +11,11 @@ glob
   })
   .map(file => {
     const regEx = new RegExp(`./src/`);
-    const key = file.replace(regEx, '').replace('ts', 'js'); // `./src/`の文字列を取り除く
+    // `./src/`の文字列を取り除く
+    const key = file
+      .replace(regEx, '')
+      .replace('ts', 'js')
+      .replace('index/', '');
     return (entries[key] = file); // '{assets/js/general/index.js': './src/assets/js/general/index.js} こうなります'
   });
 
