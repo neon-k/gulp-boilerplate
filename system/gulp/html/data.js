@@ -30,29 +30,67 @@ const getJsonData = () => {
   return jsonData; // マージしたjsonを返す
 };
 
+const isBeatifyDev = false; // 開発時の整形
+const isBeatifyProd = false; // 本番時の整形
+
+const isCleanDev = false; // 開発時の圧縮
+const isCleanProd = true; // 本番時の圧縮
+
 export const PROCESS_DATAS = [
   {
     name: 'pug:dev',
     entry,
     dist: DIST,
-    data: getJsonData()
+    data: getJsonData(),
+    isClean: isCleanDev,
+    isBeatify: isBeatifyDev
   },
   {
     name: 'pug:index:dev',
     entry: entryIndex,
     dist: DIST,
-    data: getJsonData()
+    data: getJsonData(),
+    isClean: isCleanDev,
+    isBeatify: isBeatifyDev
   },
   {
     name: 'pug:prod',
     entry,
     dist: process.env.NODE_ENV,
-    data: getJsonData()
+    data: getJsonData(),
+    isClean: isCleanProd,
+    isBeatify: isBeatifyProd
   },
   {
     name: 'pug:index:prod',
     entry: entryIndex,
     dist: process.env.NODE_ENV,
-    data: getJsonData()
+    data: getJsonData(),
+    isClean: isCleanProd,
+    isBeatify: isBeatifyProd
   }
 ];
+
+// 整形の設定
+export const BEATIFY_CONF = {
+  indent_size: 2,
+  indent_char: ' ',
+  eol: '\n',
+  indent_level: 0,
+  indent_with_tabs: true,
+  preserve_newlines: true,
+  max_preserve_newlines: 10,
+  jslint_happy: false,
+  space_after_anon_function: false,
+  brace_style: 'collapse',
+  keep_array_indentation: false,
+  keep_function_indentation: false,
+  space_before_conditional: true,
+  break_chained_methods: false,
+  eval_code: false,
+  unescape_strings: false,
+  wrap_line_length: 0,
+  wrap_attributes: 'auto',
+  wrap_attributes_indent_size: 4,
+  end_with_newline: false
+};
