@@ -8,9 +8,12 @@ import pugLintStylish from 'puglint-stylish';
 import rename from 'gulp-rename';
 import fs from 'fs';
 
-const { EXTENSION_HTML, SRC, DIST, DATA } = conf;
+const { EXTENSION_HTML, SRC, DIST, DATA, INDEX } = conf;
 
-const entryPath = `./${SRC}/**/!(_)${EXTENSION_HTML}`;
+const entryPath = [
+  `./${SRC}/**/!(_)${EXTENSION_HTML}`,
+  `!./${SRC}/${INDEX}/**/${EXTENSION_HTML}`
+];
 
 gulp.task('pug:lint', () => {
   return gulp.src(`./${SRC}/**/${EXTENSION_HTML}`).pipe(
