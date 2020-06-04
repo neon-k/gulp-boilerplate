@@ -8,7 +8,7 @@ gulp.task(
   gulp.parallel('browser', done => {
     gulp.watch(
       `./${SRC}/**/${EXTENSION_HTML}`,
-      gulp.parallel('pug:dev', 'reload')
+      gulp.parallel('pug:dev', 'pug:index:dev', 'reload')
     );
     gulp.watch(`./${DATA}/**`, gulp.parallel('pug:dev', 'reload'));
     gulp.watch(
