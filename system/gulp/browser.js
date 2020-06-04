@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import webpackConfig from '../../webpack.config.dev.babel';
+import webpackConfig from '../webpack/webpack.config.dev.babel';
 
 const { SRC, DIST, PORT } = conf;
 

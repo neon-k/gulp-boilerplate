@@ -1,4 +1,4 @@
-import conf from './system/config';
+import conf from '../config';
 import glob from 'glob';
 
 const { SRC, EXTENSION_JS } = conf;

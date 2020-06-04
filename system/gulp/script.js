@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import util from 'gulp-util';
 import webpack from 'webpack';
-import webpackConfig from '../../webpack.config.prod.babel';
+import webpackConfig from '../webpack/webpack.config.prod.babel';
 
 gulp.task('js:prod', done => {
   const webpackSetting = webpack(webpackConfig);

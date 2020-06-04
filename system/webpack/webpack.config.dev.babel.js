@@ -1,4 +1,4 @@
-import conf from './system/config';
+import conf from '../config';
 import path from 'path';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
