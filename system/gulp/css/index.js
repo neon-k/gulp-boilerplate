@@ -1,4 +1,4 @@
-import conf from '../config';
+import conf from '../../config';
 
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
@@ -48,49 +48,60 @@ gulp.task('stylelint', () => {
     );
 });
 
-gulp.task(
-  'css:dev',
-  gulp.parallel('stylelint', () => {
-    return gulp
-      .src(`./${SRC}/**/${EXTENSION_CSS}`)
-      .pipe(
-        plumber({
-          errorHandler: notify.onError('Error: <%= error.message %>')
-        })
-      )
-      .pipe(
-        sass({
-          outputStyle: 'expand'
-        })
-      )
-      .pipe(postcss(opts))
-      .pipe(rename({ extname: '.css' }))
-      .pipe(gulp.dest(`./${DIST}`));
-  })
-);
+const onProcess = config => {
+  const { name, entry, dist, renamePath, options } = config;
 
-gulp.task(
-  'css:prod',
-  gulp.parallel('stylelint', () => {
-    return gulp
-      .src(entryPath)
-      .pipe(
-        plumber({
-          errorHandler: notify.onError('Error: <%= error.message %>')
-        })
-      )
-      .pipe(
-        sass({
-          outputStyle: 'expand'
-        })
-      )
-      .pipe(postcss(opts))
-      .pipe(
-        cleancss({
-          compatibility: '*'
-        })
-      )
-      .pipe(rename({ extname: '.css' }))
-      .pipe(gulp.dest(`./${process.env.NODE_ENV}`));
-  })
-);
+  return gulp.task(
+    name,
+    gulp.parallel('stylelint', () => {
+      return gulp
+        .src(entry)
+        .pipe(
+          plumber({
+            errorHandler: notify.onError('Error: <%= error.message %>')
+          })
+        )
+        .pipe(
+          sass({
+            outputStyle: 'expand'
+          })
+        )
+        .pipe(postcss(options))
+        .pipe(
+          rename(path => {
+            path.dirname += renamePath; // 一つ上の階層に移動
+          })
+        )
+        .pipe(rename({ extname: '.css' }))
+        .pipe(gulp.dest(dist));
+    })
+  );
+};
+
+const data = [
+  {
+    name: 'css:dev',
+    entry: entryPath,
+    dist: DIST,
+    renamePath: '/',
+    options: opts
+  },
+  {
+    name: 'css:prod',
+    entry: entryPath,
+    dist: process.env.NODE_ENV,
+    renamePath: '/',
+    options: opts
+  }
+];
+
+data.forEach(r => {
+  const { name, entry, dist, options } = r;
+
+  onProcess({
+    name,
+    entry,
+    dist,
+    options
+  });
+});
