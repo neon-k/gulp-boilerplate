@@ -8,10 +8,12 @@ import pugLintStylish from 'puglint-stylish';
 import rename from 'gulp-rename';
 import fs from 'fs';
 
-const entryPath = `./${conf.src}/**/!(_)${conf.pug}`;
+const { EXTENSION_HTML, SRC, DIST, DATA } = conf;
+
+const entryPath = `./${SRC}/**/!(_)${EXTENSION_HTML}`;
 
 gulp.task('pug:lint', () => {
-  return gulp.src(`./${conf.src}/**/${conf.pug}`).pipe(
+  return gulp.src(`./${SRC}/**/${EXTENSION_HTML}`).pipe(
     pugLinter({
       reporter: pugLintStylish
     })
@@ -23,13 +25,13 @@ gulp.task('pug:lint', () => {
  * @returns {object} - page配下のjsonデータをまとめたオブジェクトを返す
  */
 const jsonData = () => {
-  const dirname = `./${conf.data}/page`; // jsonデータが格納されているファイル
+  const dirname = `./${DATA}/page`; // jsonデータが格納されているファイル
   const files = fs.readdirSync(dirname); // jsonファイルの名前を取得
   let jsonData = {}; // jsonデータを格納する変数
 
   files.forEach(fileName => {
     const parse = JSON.parse(
-      fs.readFileSync(`${process.cwd()}/${conf.data}/page/${fileName}`, 'utf8')
+      fs.readFileSync(`${process.cwd()}/${DATA}/page/${fileName}`, 'utf8')
     ); // 各jsonをパースする
     Object.assign(jsonData, parse); // パースしたjsonを用意した変数にマージしていく
   });
@@ -49,7 +51,7 @@ gulp.task(
       )
       .pipe(
         pug({
-          basedir: conf.src,
+          basedir: SRC,
           pretty: true,
           cache: false,
           data: {
@@ -62,7 +64,7 @@ gulp.task(
           path.dirname += '/../'; // 一つ上の階層に移動
         })
       )
-      .pipe(gulp.dest(`./${conf.dist}`));
+      .pipe(gulp.dest(`./${DIST}`));
   })
 );
 
@@ -78,7 +80,7 @@ gulp.task(
       )
       .pipe(
         pug({
-          basedir: conf.src,
+          basedir: SRC,
           pretty: false,
           cache: false,
           data: {

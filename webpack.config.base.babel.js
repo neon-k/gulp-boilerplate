@@ -1,17 +1,18 @@
 import conf from './system/config';
 import glob from 'glob';
 
+const { SRC, EXTENSION_JS } = conf;
+
 const entries = {};
 
 glob
-  .sync(`./${conf.src}/**/${conf.js}`, {
-    ignore: `./${conf.src}/**/_${conf.js}`
+  .sync(`./${SRC}/**/${EXTENSION_JS}`, {
+    ignore: `./${SRC}/**/_${EXTENSION_JS}`
   })
   .map(file => {
     const regEx = new RegExp(`./src/`);
-    const key = file.replace(regEx, ''); // `./src/`の文字列を取り除く
-    const keyName = key.replace('ts', 'js');
-    return (entries[keyName] = file); // '{assets/js/general/index.js': './src/assets/js/general/index.js} こうなります'
+    const key = file.replace(regEx, '').replace('ts', 'js'); // `./src/`の文字列を取り除く
+    return (entries[key] = file); // '{assets/js/general/index.js': './src/assets/js/general/index.js} こうなります'
   });
 
 export default {

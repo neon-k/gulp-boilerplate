@@ -15,11 +15,12 @@ import easing from 'postcss-easings';
 import nested from 'postcss-nested';
 import cleancss from 'gulp-clean-css';
 import flexbugs from 'postcss-flexbugs-fixes';
-import calc from 'postcss-calc';
 import scss from 'postcss-scss';
 
+const { SRC, DIST, EXTENSION_CSS } = conf;
+
 // entry
-const entryPath = `./${conf.src}/**/!(_)${conf.css}`;
+const entryPath = `./${SRC}/**/!(_)${EXTENSION_CSS}`;
 
 const opts = [
   _import({
@@ -30,14 +31,13 @@ const opts = [
   autoPrefixer(),
   mqpacker({ sort: true }),
   flexbugs(),
-  calc(),
   reporter({ clearMessages: true }),
   nested
 ];
 
 gulp.task('stylelint', () => {
   return gulp
-    .src(`./${conf.src}/**/${conf.css}`)
+    .src(`./${SRC}/**/${EXTENSION_CSS}`)
     .pipe(
       plumber({
         errorHandler: notify.onError('Error: <%= error.message %>')
@@ -52,7 +52,7 @@ gulp.task(
   'css:dev',
   gulp.parallel('stylelint', () => {
     return gulp
-      .src(`./${conf.src}/**/${conf.css}`)
+      .src(`./${SRC}/**/${EXTENSION_CSS}`)
       .pipe(
         plumber({
           errorHandler: notify.onError('Error: <%= error.message %>')
@@ -65,7 +65,7 @@ gulp.task(
       )
       .pipe(postcss(opts))
       .pipe(rename({ extname: '.css' }))
-      .pipe(gulp.dest(`./${conf.dist}`));
+      .pipe(gulp.dest(`./${DIST}`));
   })
 );
 

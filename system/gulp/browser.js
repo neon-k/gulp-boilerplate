@@ -8,6 +8,8 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import webpackConfig from '../../webpack.config.dev.babel';
 
+const { SRC, DIST, PORT } = conf;
+
 const defaultStatsOptions = {
   colors: true,
   hash: false,
@@ -33,11 +35,16 @@ gulp.task('browser', () => {
   const bundle = webpack(webpackConfig);
   return browserSync({
     notify: false,
-    port: 8080,
+    port: PORT,
     open: false,
     reloadOnRestart: true,
+    ghostMode: {
+      clicks: false,
+      forms: false,
+      scroll: false
+    },
     server: {
-      baseDir: [conf.src, conf.dist],
+      baseDir: [SRC, DIST],
       middleware: [
         webpackDevMiddleware(bundle, {
           publicPath: webpackConfig.output.publicPath,

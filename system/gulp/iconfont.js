@@ -6,6 +6,8 @@ import iconfontTemplate from 'gulp-iconfont-template';
 import conf from '../config';
 import path from 'path';
 
+const { SRC, DIST } = conf;
+
 const runTimestamp = Math.round(Date.now() / 1000);
 const fontName = 'Icons';
 const entryPath = `${path.resolve('')}/icon/**/*.svg`;
@@ -30,7 +32,7 @@ gulp.task('iconfont', () => {
         timestamp: runTimestamp
       })
     )
-    .pipe(gulp.dest(`./${conf.src}/shared/icons`));
+    .pipe(gulp.dest(`./${SRC}/shared/icons`));
 });
 
 gulp.task('iconfont:template', () => {
@@ -44,7 +46,7 @@ gulp.task('iconfont:template', () => {
         fontPath: '/shared/icons' // font-faceで定義するパスの設定
       })
     )
-    .pipe(gulp.dest(`./${conf.dist}/icon`));
+    .pipe(gulp.dest(`./${DIST}/icon`));
 });
 
 gulp.task('iconfont:build', gulp.series('iconfont', 'iconfont:template'));

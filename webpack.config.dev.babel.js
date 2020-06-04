@@ -1,10 +1,18 @@
-// import conf from './system/config';
+import conf from './system/config';
 import path from 'path';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 
 import baseConfig from './webpack.config.base.babel';
+
+const { DIST, PORT } = conf;
+
+const {
+  DefinePlugin,
+  HotModuleReplacementPlugin,
+  NoEmitOnErrorsPlugin
+} = webpack;
 
 export default merge(baseConfig, {
   output: {
@@ -14,17 +22,17 @@ export default merge(baseConfig, {
   },
   mode: 'development',
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('dist')
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(DIST)
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
-        messages: ['You application is running here http://localhost:8080']
+        messages: [`You application is running here http://localhost:${PORT}`]
       },
       onErrors: () => {},
       clearConsole: true
     }),
-    new webpack.NoEmitOnErrorsPlugin()
+    new NoEmitOnErrorsPlugin()
   ]
 });

@@ -1,8 +1,9 @@
 export default {
-  src: 'src',
-  dist: 'dist',
-  data: 'data',
-  pug: '*.pug',
-  css: '*.scss',
-  js: '*.ts'
+  SRC: 'src',
+  DIST: 'dist',
+  DATA: 'data',
+  PORT: 8080,
+  EXTENSION_HTML: '*.pug',
+  EXTENSION_CSS: '*.scss',
+  EXTENSION_JS: '*.ts'
 };
