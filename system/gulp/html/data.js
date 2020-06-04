@@ -38,7 +38,7 @@ const isCleanProd = true; // 本番時の圧縮
 
 export const PROCESS_DATAS = [
   {
-    name: 'pug:dev',
+    name: 'html:dev',
     entry,
     dist: DIST,
     data: getJsonData(),
@@ -46,7 +46,7 @@ export const PROCESS_DATAS = [
     isBeatify: isBeatifyDev
   },
   {
-    name: 'pug:index:dev',
+    name: 'html:index:dev',
     entry: entryIndex,
     dist: DIST,
     data: getJsonData(),
@@ -54,7 +54,7 @@ export const PROCESS_DATAS = [
     isBeatify: isBeatifyDev
   },
   {
-    name: 'pug:prod',
+    name: 'html:prod',
     entry,
     dist: process.env.NODE_ENV,
     data: getJsonData(),
@@ -62,7 +62,7 @@ export const PROCESS_DATAS = [
     isBeatify: isBeatifyProd
   },
   {
-    name: 'pug:index:prod',
+    name: 'html:index:prod',
     entry: entryIndex,
     dist: process.env.NODE_ENV,
     data: getJsonData(),

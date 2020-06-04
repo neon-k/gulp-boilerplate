@@ -13,8 +13,8 @@ const imgIndexPath = `./${SRC}/${INDEX}/**/${EXTENSION_IMG}`;
 gulp.task(
   'build',
   gulp.series(
-    'pug:prod',
-    'pug:index:prod',
+    'html:prod',
+    'html:index:prod',
     () => {
       return gulp.src(imgPath).pipe(gulp.dest(process.env.NODE_ENV));
     },
@@ -34,5 +34,5 @@ gulp.task(
 
 gulp.task(
   'build:dev',
-  gulp.series('pug:dev', 'pug:index:dev', 'css:dev', 'css:index:dev', 'watch')
+  gulp.series('html:dev', 'html:index:dev', 'css:dev', 'css:index:dev', 'watch')
 );
