@@ -1,7 +1,7 @@
 import conf from '../config';
 import gulp from 'gulp';
 
-const { SRC, INDEX, EXTENSION_IMG } = conf;
+const { SRC, INDEX, EXTENSION_IMG, EXTENSION_FONT } = conf;
 
 // path
 const imgPath = [
@@ -23,7 +23,7 @@ gulp.task(
     },
     () => {
       return gulp
-        .src(`./${SRC}/**/*.+(eot|ttf|woff|woff2)`)
+        .src(`./${SRC}/**/${EXTENSION_FONT}`)
         .pipe(gulp.dest(process.env.NODE_ENV));
     },
     'js:prod',

@@ -7,5 +7,6 @@ export default {
   EXTENSION_HTML: '*.pug',
   EXTENSION_CSS: '*.scss',
   EXTENSION_JS: '*.ts',
-  EXTENSION_IMG: '*.+(jpg|jpeg|png|gif|svg|mp4|ico)'
+  EXTENSION_IMG: '*.+(jpg|jpeg|png|gif|svg|mp4|ico)',
+  EXTENSION_FONT: '*.+(eot|ttf|woff|woff2)'
 };
