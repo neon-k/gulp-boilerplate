@@ -7,6 +7,7 @@ gulp.task(
   'build',
   gulp.series(
     'pug:prod',
+    'pug:index:prod',
     () => {
       return gulp
         .src(`./${SRC}/**/*.+(jpg|jpeg|png|gif|svg|mp4|ico)`)
@@ -18,8 +19,12 @@ gulp.task(
         .pipe(gulp.dest(`${process.env.NODE_ENV}`));
     },
     'js:prod',
-    'css:prod'
+    'css:prod',
+    'css:index:prod'
   )
 );
 
-gulp.task('build:dev', gulp.series('pug:dev', 'css:dev', 'watch'));
+gulp.task(
+  'build:dev',
+  gulp.series('pug:dev', 'pug:index:dev', 'css:dev', 'css:index:dev', 'watch')
+);

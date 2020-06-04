@@ -10,10 +10,13 @@ gulp.task(
       `./${SRC}/**/${EXTENSION_HTML}`,
       gulp.parallel('pug:dev', 'pug:index:dev', 'reload')
     );
-    gulp.watch(`./${DATA}/**`, gulp.parallel('pug:dev', 'reload'));
+    gulp.watch(
+      `./${DATA}/**`,
+      gulp.parallel('pug:dev', 'pug:index:dev', 'reload')
+    );
     gulp.watch(
       `./${SRC}/**/${EXTENSION_CSS}`,
-      gulp.parallel('css:dev', 'reload')
+      gulp.parallel('css:dev', 'css:index:dev', 'reload')
     );
     gulp.watch(`./${SRC}/**/${EXTENSION_JS}`, gulp.task('reload'));
     done();

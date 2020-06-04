@@ -3,8 +3,9 @@
 
 $test: #fff;
 
-.body {
+body {
   color: $test;
+  background-color: #000;
 }
 
 .test-wrap {
