@@ -8,7 +8,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import webpackConfig from '../webpack/webpack.config.dev.babel';
 
-const { SRC, DIST, PORT } = conf;
+const { SRC, DIST, PORT, INDEX } = conf;
 
 const defaultStatsOptions = {
   colors: true,
@@ -44,7 +44,7 @@ gulp.task('browser', () => {
       scroll: false
     },
     server: {
-      baseDir: [SRC, DIST],
+      baseDir: [SRC, DIST, `${SRC}/${INDEX}`],
       middleware: [
         webpackDevMiddleware(bundle, {
           publicPath: webpackConfig.output.publicPath,

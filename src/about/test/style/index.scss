@@ -1,0 +1,21 @@
+@import '../../../shared/styles/import';
+@import '../../../shared/icons/css/icons';
+
+$test: #fff;
+
+body {
+  color: $test;
+  background-color: #000;
+}
+
+.test-wrap {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.text {
+  @include font(24, 20, 16);
+
+  width: 100%;
+  margin-top: percentage(30 / 700);
+}
