@@ -20,14 +20,8 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "yarn lint:script",
-      "git add --force"
-    ],
-    "*.scss": [
-      "yarn lint:style",
-      "git add --force"
-    ]
+    "*.ts": ["yarn lint:script", "git add --force"],
+    "*.scss": ["yarn lint:style", "git add --force"]
   },
   "author": "kota",
   "license": "ISC",
@@ -38,7 +32,6 @@
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/register": "^7.10.1",
     "@babel/runtime": "^7.10.2",
-    "@hot-loader/react-dom": "^16.13.0",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",
     "autoprefixer": "^9.8.0",
@@ -111,14 +104,12 @@
   "dependencies": {
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
+    "@hot-loader/react-dom": "^16.13.0",
     "gsap": "^3.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
     "ress": "^2.0.4"
   },
-  "browserslist": [
-    "last 2 versions",
-    "ie 9"
-  ]
+  "browserslist": ["last 2 versions", "ie 9"]
 }
