@@ -1,11 +1,11 @@
 import React, { ReactElement, Fragment } from 'react';
 
-const Unko: () => ReactElement = (): ReactElement => {
+const Example: () => ReactElement = (): ReactElement => {
   return (
     <Fragment>
-      <h1 className="test">React Test</h1>
+      <h1 className='test'>React Test</h1>
     </Fragment>
   );
 };
 
-export default Unko;
+export default Example;

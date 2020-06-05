@@ -2,10 +2,10 @@ import ReactDOM from 'react-dom';
 import React, { ReactElement } from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import Unko from './react';
+import Example from './react';
 
 const Layouts: () => ReactElement = (): ReactElement => {
-  return <Unko />;
+  return <Example />;
 };
 
 const rootEl: HTMLElement = document.getElementById('app');
