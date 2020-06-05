@@ -1,7 +1,7 @@
 import conf from '../config';
 import glob from 'glob';
 
-const { SRC, INDEX, EXTENSION_JS } = conf;
+const { SRC, INDEX, EXTENSION_JS, EXTENSION_TSX } = conf;
 
 const entries = {};
 
@@ -17,7 +17,24 @@ glob
       .replace('.ts', '.js')
       .replace(`${INDEX}/`, '');
 
-    return (entries[key] = file); // '{assets/js/general/index.js': './src/assets/js/general/index.js} こうなります'
+    return (entries[key] = file);
+  });
+
+glob
+  .sync(`./${SRC}/**/${EXTENSION_TSX}`, {
+    ignore: `./${SRC}/**/react/**/${EXTENSION_TSX}`
+  })
+  .map(file => {
+    const regEx = new RegExp(`./src/`);
+    const key = file
+      .replace(regEx, '')
+      .replace('.tsx', '.js')
+      .replace(`${INDEX}/`, '');
+
+    entries[key] =
+      process.env.NODE_ENV !== 'production'
+        ? [file, 'webpack/hot/dev-server', 'webpack-hot-middleware/client']
+        : file;
   });
 
 export default {
@@ -26,13 +43,13 @@ export default {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'ts-loader'
       },
       {
         enforce: 'pre',
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
@@ -48,6 +65,9 @@ export default {
     }
   },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   }
 };

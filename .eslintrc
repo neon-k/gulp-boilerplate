@@ -5,11 +5,12 @@
     "jquery": true
   },
   "extends": [
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
-  "plugins": ["@typescript-eslint", "typescript"],
+  "plugins": ["@typescript-eslint", "typescript", "react"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2018,
