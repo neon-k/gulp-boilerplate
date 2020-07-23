@@ -37,12 +37,12 @@ export default {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
+        loader: 'ts-loader'
       },
       {
         test: /\.(vert|frag|glsl)$/i,
         use: [{ loader: 'raw-loader' }, { loader: 'glslify-loader' }],
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         enforce: 'pre',
@@ -50,21 +50,21 @@ export default {
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          fix: true,
-        },
-      },
-    ],
+          fix: true
+        }
+      }
+    ]
   },
   optimization: {
     splitChunks: {
       name: 'shared/script/vendor.js',
-      chunks: 'initial',
-    },
+      chunks: 'initial'
+    }
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
-  },
+      'react-dom': '@hot-loader/react-dom'
+    }
+  }
 };
