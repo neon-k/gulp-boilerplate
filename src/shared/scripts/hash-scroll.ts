@@ -1,6 +1,6 @@
-import smoothscroll from './_smooth-scroll';
-import { offsetTop } from './_offset';
-import { makeArray } from './_make-array';
+import smoothscroll from './smooth-scroll';
+import { offsetTop } from './offset';
+import { makeArray } from './make-array';
 
 /**
  * hashスクロールを追加

@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React, { ReactElement } from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import Example from './react';
+import Example from './react/Example';
 
 const Layouts: () => ReactElement = (): ReactElement => {
   return <Example />;
