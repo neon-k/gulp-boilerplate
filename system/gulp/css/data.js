@@ -25,12 +25,12 @@ const opts = [
     path: ['node_modules'],
     glob: true
   }),
-  easing(),
-  mqpacker({ sort: true }),
-  autoPrefixer(),
-  flexbugs(),
-  reporter({ clearMessages: true }),
-  nested
+  // easing(),
+  // mqpacker({ sort: true }),
+  // autoPrefixer(),
+  // flexbugs(),
+  // reporter({ clearMessages: true }),
+  // nested
 ];
 
 const optsProd = [...opts];
