@@ -37,7 +37,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/register": "^7.12.1",
-    "@babel/runtime": "^7.10.2",
+    "@babel/runtime": "^7.12.5",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "autoprefixer": "9.8.6",
