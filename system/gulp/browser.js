@@ -10,21 +10,21 @@ import webpackConfig from '../webpack/webpack.config.dev.babel';
 
 const { SRC, DIST, PORT, INDEX } = conf;
 
-const defaultStatsOptions = {
-  colors: true,
-  hash: false,
-  timings: false,
-  chunks: false,
-  chunkModules: false,
-  modules: false,
-  children: true,
-  version: true,
-  cached: true,
-  cachedAssets: true,
-  reasons: true,
-  source: true,
-  errorDetails: true
-};
+// const defaultStatsOptions = {
+//   colors: true,
+//   hash: false,
+//   timings: false,
+//   chunks: false,
+//   chunkModules: false,
+//   modules: false,
+//   children: true,
+//   version: true,
+//   cached: true,
+//   cachedAssets: true,
+//   reasons: true,
+//   source: true,
+//   errorDetails: true
+// };
 
 gulp.task('reload', done => {
   browserSync.reload();
@@ -47,8 +47,7 @@ gulp.task('browser', () => {
       baseDir: [SRC, DIST, `${SRC}/${INDEX}`],
       middleware: [
         webpackDevMiddleware(bundle, {
-          publicPath: webpackConfig.output.publicPath,
-          stats: defaultStatsOptions
+          publicPath: webpackConfig.output.publicPath
         }),
         webpackHotMiddleware(bundle)
       ]

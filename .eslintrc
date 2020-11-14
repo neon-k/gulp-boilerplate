@@ -16,7 +16,8 @@
     "ecmaVersion": 2018,
     "sourceType": "module",
     "allowImportExportEverywhere": true,
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "warnOnUnsupportedTypeScriptVersion": false
   },
   "rules": {
     "no-console": "off",
