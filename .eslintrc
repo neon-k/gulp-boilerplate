@@ -22,5 +22,10 @@
   "rules": {
     "no-console": "off",
     "no-undef": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

@@ -1,8 +1,6 @@
-import fs from 'fs';
-
 import conf from '../../config';
 
-const { EXTENSION_HTML, SRC, DIST, INDEX, DATA } = conf;
+const { EXTENSION_HTML, SRC, DIST, INDEX } = conf;
 
 const entry = [
   `./${SRC}/**/!(_)${EXTENSION_HTML}`,
@@ -10,25 +8,6 @@ const entry = [
 ];
 
 const entryIndex = `./${SRC}/${INDEX}/**/!(_)${EXTENSION_HTML}`;
-
-/**
- * jsonデータをまとめる関数
- * @returns {object} - page配下のjsonデータをまとめたオブジェクトを返す
- */
-const getJsonData = () => {
-  const dirname = `./${DATA}/page`; // jsonデータが格納されているファイル
-  const files = fs.readdirSync(dirname); // jsonファイルの名前を取得
-  let jsonData = {}; // jsonデータを格納する変数
-
-  files.forEach(fileName => {
-    const parse = JSON.parse(
-      fs.readFileSync(`${process.cwd()}/${DATA}/page/${fileName}`, 'utf8')
-    ); // 各jsonをパースする
-    Object.assign(jsonData, parse); // パースしたjsonを用意した変数にマージしていく
-  });
-
-  return jsonData; // マージしたjsonを返す
-};
 
 const isBeatifyDev = false; // 開発時の整形
 const isBeatifyProd = false; // 本番時の整形
@@ -41,7 +20,6 @@ export const PROCESS_DATAS = [
     name: 'html:dev',
     entry,
     dist: DIST,
-    data: getJsonData(),
     isClean: isCleanDev,
     isBeatify: isBeatifyDev
   },
@@ -49,7 +27,6 @@ export const PROCESS_DATAS = [
     name: 'html:index:dev',
     entry: entryIndex,
     dist: DIST,
-    data: getJsonData(),
     isClean: isCleanDev,
     isBeatify: isBeatifyDev
   },
@@ -57,7 +34,6 @@ export const PROCESS_DATAS = [
     name: 'html:prod',
     entry,
     dist: process.env.NODE_ENV,
-    data: getJsonData(),
     isClean: isCleanProd,
     isBeatify: isBeatifyProd
   },
@@ -65,7 +41,6 @@ export const PROCESS_DATAS = [
     name: 'html:index:prod',
     entry: entryIndex,
     dist: process.env.NODE_ENV,
-    data: getJsonData(),
     isClean: isCleanProd,
     isBeatify: isBeatifyProd
   }
