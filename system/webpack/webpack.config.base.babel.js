@@ -5,7 +5,31 @@ const { SRC, INDEX, EXTENSION_JS, EXTENSION_TSX } = conf;
 
 const entries = {};
 
-glob.sync(`./${SRC}/**/index${EXTENSION_JS}`, {}).map((file) => {
+const defaultStatsOptions = {
+  colors: {
+    yellow: '\u001b[33m',
+    magenta: '\u001b[33m',
+    cyan: '\u001b[33m',
+    bold: '\u001b[33m',
+    green: '\u001b[33m'
+  },
+  hash: false,
+  timings: false,
+  chunks: false,
+  chunkModules: false,
+  modules: false,
+  children: true,
+  version: true,
+  cached: true,
+  cachedAssets: true,
+  reasons: true,
+  source: true,
+  errorDetails: true
+};
+
+
+
+glob.sync(`./${SRC}/**/index${EXTENSION_JS}`, {}).forEach(file => {
   const regEx = new RegExp(`./${SRC}/`);
   // `./src/`の文字列を取り除く
   const key = file
@@ -16,7 +40,7 @@ glob.sync(`./${SRC}/**/index${EXTENSION_JS}`, {}).map((file) => {
   return (entries[key] = file);
 });
 
-glob.sync(`./${SRC}/**/index${EXTENSION_TSX}`, {}).map((file) => {
+glob.sync(`./${SRC}/**/index${EXTENSION_TSX}`, {}).forEach(file => {
   const regEx = new RegExp(`./src/`);
   const key = file
     .replace(regEx, '')
@@ -66,5 +90,6 @@ export default {
     alias: {
       'react-dom': '@hot-loader/react-dom'
     }
-  }
+  },
+  stats: defaultStatsOptions
 };

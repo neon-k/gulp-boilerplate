@@ -11,7 +11,13 @@ gulp.task('js:prod', done => {
     }
     util.log(
       stats.toString({
-        colors: true,
+        colors: {
+          yellow: '\u001b[33m',
+          cyan: '\u001b[32m',
+          bold: '\u001b[32m',
+          magenta: '\u001b[32m',
+          white: '\u001b[36m'
+        },
         version: false,
         hash: false,
         timings: false,
