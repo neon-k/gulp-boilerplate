@@ -25,17 +25,27 @@ $ brew install yarn
 
 ## Build Setup
 
+### Install
+
 ```bash
-# 依存モジュールをインストール。
 $ yarn install
+```
 
-# 開発開始
+### Start
+
+```bash
 $ yarn start
+```
 
-# 本番環境生成
+### Production
+
+```bash
 $ yarn build
+```
 
-# 本番環境デバック
+### Production Debug
+
+```bash
 $ yarn browser
 ```
 
@@ -45,7 +55,7 @@ $ yarn browser
 
 ## Structure
 
-```sh
+```bash
 .
 ├── dist                # 静的ファイル書出先
 ├── icon                # アイコンフォントを生成するファイル
