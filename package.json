@@ -2,6 +2,7 @@
   "name": "gulp-boilerplate",
   "version": "1.0.0",
   "description": "",
+  "rootDir": "src",
   "scripts": {
     "start": "yarn dev",
     "dev": "gulp build:dev",
