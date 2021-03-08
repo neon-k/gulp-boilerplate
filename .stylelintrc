@@ -7,7 +7,16 @@
     "stylelint-config-prettier"
   ],
   "rules": {
-     "indentation": 2,
+    "indentation": 2,
     "at-rule-no-unknown": [true, {"ignoreAtRules": ["if", "else", "function", "return", "include","mixin","each"]}],
+    "color-hex-case": "lower",
+    "color-named": "never",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-before": "never",
+    "font-weight-notation": "numeric",
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "declaration-block-no-duplicate-properties": true,
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-redundant-longhand-properties": true
   }
 }

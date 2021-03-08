@@ -1,2 +1,10 @@
 @import '../../shared/styles/import';
 @import '../../shared/icons/css/icons';
+
+.test-wrap {
+  color: #fff;
+  display: block;
+  font-size: getw(20);  
+  margin: 0;
+  font-weight: 700;
+}

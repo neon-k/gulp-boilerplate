@@ -22,7 +22,11 @@ gulp.task('stylelint', () => {
       })
     )
     .pipe(
-      postcss([stylelints, reporter({ clearMessages: true })], { syntax: scss })
+      postcss([
+        stylelints,
+        reporter({ clearMessages: true }),
+      ],
+      { syntax: scss })
     );
 });
 

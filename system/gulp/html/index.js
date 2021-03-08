@@ -19,7 +19,8 @@ const { EXTENSION_HTML, SRC, DATA } = conf;
 gulp.task('pug:lint', () => {
   return gulp.src(`./${SRC}/**/${EXTENSION_HTML}`).pipe(
     pugLinter({
-      reporter: pugLintStylish
+      reporter: pugLintStylish,
+      failAfterError: !!(process.env.NODE_ENV === 'test')
     })
   );
 });
@@ -48,8 +49,6 @@ const onProcess = config => {
         return jsonData; // マージしたjsonを返す
       };
 
-      const data = getJsonData();
-
       return gulp
         .src(entry)
         .pipe(
@@ -62,7 +61,7 @@ const onProcess = config => {
             basedir: SRC,
             pretty: !isClean,
             cache: false,
-            data: { data }
+            data: { data: getJsonData() }
           })
         )
         .pipe(gulpIf(isBeatify, htmlbeautify(BEATIFY_CONF)))

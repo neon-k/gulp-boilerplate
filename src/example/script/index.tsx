@@ -8,7 +8,7 @@ const Layouts: () => ReactElement = (): ReactElement => {
   return <Example />;
 };
 
-const rootEl: HTMLElement = document.getElementById('app');
+const rootEl = document.getElementById('app');
 rootEl ? ReactDOM.render(<Layouts />, rootEl) : null;
 
 hot(Layouts);

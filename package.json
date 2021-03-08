@@ -13,22 +13,10 @@
     "lint:html": "gulp pug:lint",
     "lint:script": "eslint --fix --ext .ts --ignore-path .eslintignore .",
     "lint:style": "stylelint --fix --ignore-path .stylelintignore \"**/*.scss\"",
+    "lint:html:CI": "cross-env NODE_ENV=test gulp pug:lint",
+    "lint:script:CI": "eslint --ext .ts --ignore-path .eslintignore .",
+    "lint:style:CI": "stylelint --ignore-path .stylelintignore \"**/*.scss\"",
     "lint-staged": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "yarn lint:script",
-      "git add --force"
-    ],
-    "*.scss": [
-      "yarn lint:style",
-      "git add --force"
-    ]
   },
   "author": "kota",
   "license": "ISC",

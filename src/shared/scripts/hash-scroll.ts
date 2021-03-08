@@ -22,7 +22,11 @@ const hashScroll: (name: string, height?: number) => void = (
       e.preventDefault();
       const dom = e.currentTarget as HTMLElement;
       const href = dom.getAttribute('href');
-      const target = document.querySelector(href) as HTMLElement;
+      const target = document.querySelector<HTMLElement>(href);
+
+      if (!target) {
+        return;
+      }
 
       smoothscroll(offsetTop(target) - height);
     });

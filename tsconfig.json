@@ -11,6 +11,10 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": true,
+    "removeComments": true,
     "jsx": "react",
     "lib": ["es2019", "dom"],
     "paths": {
