@@ -8,10 +8,10 @@
 		url('<%= fontPath %>/<%= fontName %>.ttf<%= cacheBusterQueryString %>') format('truetype'),
 }
 
-.global-icon-font {
-  /* stylelint-disable font-family-name-quotes */
+.sw__icon-font {
+  /* stylelint-disable font-family-name-quotes, font-family-no-missing-generic-family-keyword */
   font-family: "<%= fontName %>";
-  /* stylelint-enable */
+  /* stylelint-enable font-family-name-quotes, font-family-no-missing-generic-family-keyword */
   font-style: normal;
   <% _.each(glyphs, function(glyph) { %>
     &.<%= glyph.fileName %> {

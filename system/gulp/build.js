@@ -52,5 +52,5 @@ gulp.task(
 
 gulp.task(
   'build:dev',
-  gulp.series('html:dev', 'html:index:dev', 'css:dev', 'css:index:dev', 'watch')
+  gulp.series('html:dev', 'html:index:dev', 'css:dev', 'css:index:dev', 'iconfont:build', 'watch')
 );

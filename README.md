@@ -51,6 +51,10 @@ $ yarn browser
 
 開発をする際、`yarn start`をして頂き、[http://localhost:8080](http://localhost:8080) にブラウザにアクセスすればデバックできます。
 
+iconフォントのデバック下記のURLで確認ができます。
+
+[http://localhost:8080/icon](http://localhost:8080/icon)
+
 `yarn build`で production フォルダ内に納品ファイルが生成されます。
 
 ## Structure
