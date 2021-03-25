@@ -2,10 +2,10 @@
   /* stylelint-disable font-family-name-quotes */
   font-family: "<%= fontName %>";
   /* stylelint-enable */
-	src: url('<%= fontPath %>/<%= fontName %>.eot<%= cacheBusterQueryString %>');
-	src: url('<%= fontPath %>/<%= fontName %>.eot?<%= cacheBuster %>#iefix') format('eot'),
-		url('<%= fontPath %>/<%= fontName %>.woff<%= cacheBusterQueryString %>') format('woff'),
-		url('<%= fontPath %>/<%= fontName %>.ttf<%= cacheBusterQueryString %>') format('truetype'),
+  src: url('<%= fontPath %>/<%= fontName %>.eot<%= cacheBusterQueryString %>');
+  src: url('<%= fontPath %>/<%= fontName %>.eot?<%= cacheBuster %>#iefix') format('eot'),
+    url('<%= fontPath %>/<%= fontName %>.woff<%= cacheBusterQueryString %>') format('woff'),
+    url('<%= fontPath %>/<%= fontName %>.ttf<%= cacheBusterQueryString %>') format('truetype');
 }
 
 .sw__icon-font {
@@ -14,10 +14,10 @@
   /* stylelint-enable font-family-name-quotes, font-family-no-missing-generic-family-keyword */
   font-style: normal;
   <% _.each(glyphs, function(glyph) { %>
-    &.<%= glyph.fileName %> {
-      &::before {
-        content: '\<%= glyph.codePoint %>';
-      }
+  &.<%= glyph.fileName %> {
+    &::before {
+      content: '\<%= glyph.codePoint %>';
     }
+  }
   <% }); %>
 }
